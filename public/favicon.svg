@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#1d3320"/>
-  <text x="5" y="24" font-size="20">⛳</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#1d3320"/>
+  <rect x="30" y="10" width="2.5" height="34" fill="#e8f0d8" rx="1"/>
+  <polygon points="32.5,10 48,16 32.5,22" fill="#c8a84b"/>
+  <ellipse cx="26" cy="46" rx="9" ry="3.5" fill="#0a1209"/>
+  <ellipse cx="26" cy="45" rx="9" ry="3.5" fill="#163518"/>
+  <circle cx="38" cy="50" r="7" fill="#f5f0e8"/>
+  <circle cx="36" cy="48" r="1" fill="rgba(0,0,0,0.12)"/>
+  <circle cx="40" cy="48" r="1" fill="rgba(0,0,0,0.12)"/>
+  <circle cx="38" cy="51" r="1" fill="rgba(0,0,0,0.12)"/>
+  <circle cx="35" cy="51.5" r="0.8" fill="rgba(0,0,0,0.1)"/>
+  <circle cx="41" cy="51.5" r="0.8" fill="rgba(0,0,0,0.1)"/>
 </svg>
