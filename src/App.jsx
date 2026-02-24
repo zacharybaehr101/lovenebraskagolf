@@ -50,7 +50,14 @@ function Nav({ navigate, currentPage }) {
               onMouseLeave={e => e.target.style.color="rgba(200,216,184,0.65)"}
             >{label}</button>
           ))}
-          <button onClick={() => navigate("search")} style={{
+          <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer"
+            style={{ display:"flex", alignItems:"center", gap:5, color:"rgba(200,216,184,0.65)", fontSize:13, fontWeight:600, fontFamily:"'Source Sans 3',sans-serif", letterSpacing:"0.06em", textDecoration:"none", transition:"color 0.2s" }}
+            onMouseEnter={e => e.currentTarget.style.color="#a8d890"}
+            onMouseLeave={e => e.currentTarget.style.color="rgba(200,216,184,0.65)"}>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <button style={{
             background:"#c8a84b", color:"#1a1000",
             fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800,
             letterSpacing:"0.12em", textTransform:"uppercase",
@@ -250,12 +257,20 @@ function HomePage({ navigate }) {
           <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:36, marginBottom:36 }}>
             <div>
               <div style={{ fontFamily:"'Playfair Display',serif", color:"#fff", fontSize:18, fontWeight:900, marginBottom:10 }}>Love<span style={{ color:"#c8a84b" }}>Nebraska</span><span style={{ color:"#a8d890" }}>Golf</span></div>
-              <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(200,216,184,0.4)", lineHeight:1.65, maxWidth:260 }}>The definitive guide to golf in Nebraska — 197 courses across 8 regions.</p>
+              <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(200,216,184,0.4)", lineHeight:1.65, maxWidth:260, marginBottom:16 }}>The definitive guide to golf in Nebraska — 197 courses across 8 regions.</p>
+              {/* Facebook CTA */}
+              <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer"
+                style={{ display:"inline-flex", alignItems:"center", gap:8, background:"#3b5998", color:"#fff", borderRadius:3, padding:"9px 16px", textDecoration:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, fontWeight:700, transition:"opacity 0.2s" }}
+                onMouseEnter={e => e.currentTarget.style.opacity="0.85"}
+                onMouseLeave={e => e.currentTarget.style.opacity="1"}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Follow on Facebook
+              </a>
             </div>
             {[
               { label:"Regions", items:[["East","search",{region:"East"}],["Sandhills","search",{region:"Sandhills"}],["Panhandle","search",{region:"Panhandle"}],["Northeast","search",{region:"Northeast"}]] },
               { label:"Browse",  items:[["All Courses","search",{}],["Public Courses","search",{type:"Public"}],["18-Hole Courses","search",{holes:"18"}],["Top Rated","search",{}]] },
-              { label:"For Courses", items:[["Claim Listing","home",{}],["About","home",{}],["Contact","home",{}]] },
+              { label:"For Courses", items:[["Claim Listing","claim",{}],["About","home",{}],["Contact","home",{}]] },
             ].map(col => (
               <div key={col.label}>
                 <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.2em", textTransform:"uppercase", color:"#c8a84b", marginBottom:12 }}>{col.label}</div>
@@ -265,8 +280,14 @@ function HomePage({ navigate }) {
               </div>
             ))}
           </div>
-          <div style={{ borderTop:"1px solid rgba(255,255,255,0.07)", paddingTop:18, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
-            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.28)" }}>© 2025 LoveNebraskaGolf.com · All rights reserved</span>
+          <div style={{ borderTop:"1px solid rgba(255,255,255,0.07)", paddingTop:18, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:10, alignItems:"center" }}>
+            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.28)" }}>© 2026 LoveNebraskaGolf.com · All rights reserved</span>
+            <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer" style={{ display:"flex", alignItems:"center", gap:5, fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.35)", textDecoration:"none" }}
+              onMouseEnter={e => e.currentTarget.style.color="#a8d890"}
+              onMouseLeave={e => e.currentTarget.style.color="rgba(200,216,184,0.35)"}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              facebook.com/LoveNebraskaGolf
+            </a>
             <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.28)" }}>197 Courses · 8 Regions · Nebraska's Golf Directory</span>
           </div>
         </div>
@@ -397,7 +418,7 @@ function SearchPage({ navigate, initialFilters = {} }) {
                 <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#6a5e40" }}>Stand out with photos, full amenities, and priority placement. <strong style={{ color:"#4a7c3a" }}>Just $12.99/month.</strong></div>
               </div>
             </div>
-            <div style={{ background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"9px 20px", borderRadius:2, whiteSpace:"nowrap", flexShrink:0, cursor:"pointer" }} onClick={() => navigate("claim")}>Claim for $199/yr →</div>
+            <div style={{ background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"9px 20px", borderRadius:2, whiteSpace:"nowrap", flexShrink:0, cursor:"pointer" }} onClick={() => navigate("claim")}>Claim for $12.99/mo →</div>
           </div>
 
           {/* Course rows */}
