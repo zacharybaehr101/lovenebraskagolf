@@ -1,0 +1,11 @@
+# ============================================================
+# VERCEL ENVIRONMENT VARIABLES
+# ============================================================
+# DO NOT commit this file to GitHub.
+# Copy each line into Vercel → Project Settings → Environment Variables
+# ============================================================
+
+STRIPE_SECRET_KEY=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
+STRIPE_PUBLISHABLE_KEY=pk_live_n5vRYb7iHNbOTfrsmLxw2VfM00g8FxNYZR
+STRIPE_PRICE_ID=price_1T2dhRCpwVxJqKasnZ9OM622
+SITE_URL=https://lovenebraskagolf.com

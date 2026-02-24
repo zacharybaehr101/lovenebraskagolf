@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files — NEVER commit these
+.env
+.env.local
+.env.production
+env-for-vercel.txt
+
+# Editor
+.DS_Store
+.vscode/
+*.log
