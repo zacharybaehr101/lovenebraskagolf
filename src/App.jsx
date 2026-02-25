@@ -815,23 +815,48 @@ export default function App() {
   const [page, setPage] = useState("home");
   const [params, setParams] = useState({});
 
-  // Handle direct URL visits to /claim/success after Stripe redirect
+  // Handle direct URL visits — full deep linking support
   useEffect(() => {
     const path = window.location.pathname;
+    const qp = new URLSearchParams(window.location.search);
+
     if (path === "/claim/success") {
       setPage("success");
     } else if (path === "/claim") {
       setPage("claim");
+    } else if (qp.get("course")) {
+      // lovenebraskagolf.com/?course=quarry-oaks-golf-club
+      setPage("course");
+      setParams({ slug: qp.get("course") });
+    } else if (qp.get("region")) {
+      // lovenebraskagolf.com/?region=Sandhills
+      setPage("search");
+      setParams({ region: qp.get("region") });
+    } else if (qp.get("search")) {
+      // lovenebraskagolf.com/?search=lincoln
+      setPage("search");
+      setParams({ query: qp.get("search") });
     }
   }, []);
 
   const navigate = useCallback((newPage, newParams = {}) => {
     setPage(newPage);
     setParams(newParams);
-    // Update URL without reload
-    if (newPage === "claim")   window.history.pushState({}, "", "/claim");
-    else if (newPage === "success") window.history.pushState({}, "", "/claim/success");
-    else window.history.pushState({}, "", "/");
+    // Update URL to be shareable and bookmarkable
+    if (newPage === "claim")
+      window.history.pushState({}, "", "/claim");
+    else if (newPage === "success")
+      window.history.pushState({}, "", "/claim/success");
+    else if (newPage === "course" && newParams.slug)
+      window.history.pushState({}, "", `/?course=${newParams.slug}`);
+    else if (newPage === "search" && newParams.region)
+      window.history.pushState({}, "", `/?region=${encodeURIComponent(newParams.region)}`);
+    else if (newPage === "search" && newParams.query)
+      window.history.pushState({}, "", `/?search=${encodeURIComponent(newParams.query)}`);
+    else if (newPage === "search")
+      window.history.pushState({}, "", "/?search=all");
+    else
+      window.history.pushState({}, "", "/");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
