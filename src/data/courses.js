@@ -210,12 +210,12 @@ export const COURSES = RAW_COURSES.map(c => ({
 }));
 
 export const REGIONS = [
-  { name:"Sandhills",     tagline:"Bucket-list golf. World-famous courses.",      courses:11,  icon:"🌾", bg:"linear-gradient(135deg,#2a1f08 0%,#4a3510 60%,#3a2a08 100%)", accent:"#e8c86b" },
-  { name:"East",          tagline:"Omaha, Lincoln & the metro heartland.",         courses:67,  icon:"🏙️", bg:"linear-gradient(135deg,#0e2010 0%,#1d3a1a 60%,#0a1a0c 100%)", accent:"#a8d890" },
-  { name:"Panhandle",     tagline:"Big sky golf beneath Scotts Bluff.",            courses:18,  icon:"🏔️", bg:"linear-gradient(135deg,#1a1030 0%,#2a1848 60%,#160e28 100%)", accent:"#c8b8f0" },
-  { name:"Northeast",     tagline:"Rolling terrain, genuine Nebraska character.",  courses:28,  icon:"🌊", bg:"linear-gradient(135deg,#081820 0%,#102838 60%,#081520 100%)", accent:"#88d0e8" },
-  { name:"South Central", tagline:"Kearney, Grand Island & the Platte Valley.",   courses:34,  icon:"🌻", bg:"linear-gradient(135deg,#1e1205 0%,#382010 60%,#180e05 100%)", accent:"#f0c060" },
-  { name:"Southwest",     tagline:"North Platte to the Kansas line.",              courses:17,  icon:"🌵", bg:"linear-gradient(135deg,#181e04 0%,#283010 60%,#141a04 100%)", accent:"#c8d860" },
-  { name:"Southeast",     tagline:"Historic clubs, peaceful river-town courses.",  courses:17,  icon:"🌳", bg:"linear-gradient(135deg,#081a0e 0%,#102a18 60%,#061408 100%)", accent:"#78c890" },
-  { name:"North Central", tagline:"Remote, rugged, and refreshingly uncrowded.",  courses:5,   icon:"🦅", bg:"linear-gradient(135deg,#180e08 0%,#2a1810 60%,#140c06 100%)", accent:"#d0a878" },
+  { name:"Sandhills",     tagline:"Bucket-list golf. World-famous courses.",      courses:11,  icon:"🌾", bg:"linear-gradient(135deg,#F7F1E2,#EFE6D2)", accent:"#8A6D3B" },
+  { name:"East",          tagline:"Omaha, Lincoln & the metro heartland.",         courses:67,  icon:"🏙️", bg:"linear-gradient(135deg,#EAF0E2,#DCE6D2)", accent:"#2D4A28" },
+  { name:"Panhandle",     tagline:"Big sky golf beneath Scotts Bluff.",            courses:18,  icon:"🏔️", bg:"linear-gradient(135deg,#EFEBF7,#E2DDF0)", accent:"#5A4E8A" },
+  { name:"Northeast",     tagline:"Rolling terrain, genuine Nebraska character.",  courses:28,  icon:"🌊", bg:"linear-gradient(135deg,#E4EFF4,#D4E4EC)", accent:"#2E6E8A" },
+  { name:"South Central", tagline:"Kearney, Grand Island & the Platte Valley.",   courses:34,  icon:"🌻", bg:"linear-gradient(135deg,#F7EEDC,#F0E2C4)", accent:"#8A6420" },
+  { name:"Southwest",     tagline:"North Platte to the Kansas line.",              courses:17,  icon:"🌵", bg:"linear-gradient(135deg,#EFF2DF,#E2E8C8)", accent:"#5F6E22" },
+  { name:"Southeast",     tagline:"Historic clubs, peaceful river-town courses.",  courses:17,  icon:"🌳", bg:"linear-gradient(135deg,#E6F1E8,#D6E6DA)", accent:"#2E6E4A" },
+  { name:"North Central", tagline:"Remote, rugged, and refreshingly uncrowded.",  courses:5,   icon:"🦅", bg:"linear-gradient(135deg,#F2E9DC,#E8DCC8)", accent:"#7A5A35" },
 ];
