@@ -6,9 +6,9 @@ import { ClaimPage, SuccessPage } from "./pages/ClaimFlow.jsx";
 const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700;800&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0a1209; }
-  input::placeholder { color: rgba(255,255,255,0.38); }
-  select option { background: #1a2a1a; color: #fff; }
+  body { background: #F3EAD7; }
+  input::placeholder { color: rgba(42,58,46,0.42); }
+  select option { background: #FCFAF3; color: #2A3A2E; }
   @keyframes fadeUp   { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
   @keyframes slideIn  { from { opacity:0; transform:translateX(-12px); } to { opacity:1; transform:translateX(0); } }
@@ -30,35 +30,35 @@ function Nav({ navigate, currentPage }) {
   return (
     <nav style={{
       position:"sticky", top:0, zIndex:200,
-      background: scrolled ? "rgba(6,14,6,0.97)" : "rgba(6,14,6,0.88)",
+      background: scrolled ? "rgba(243,234,215,0.97)" : "rgba(243,234,215,0.9)",
       backdropFilter:"blur(14px)",
-      borderBottom:"1px solid rgba(255,255,255,0.07)",
+      borderBottom:"1px solid rgba(18,41,28,0.1)",
       transition:"background 0.3s",
     }}>
       <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", height:60 }}>
         <button onClick={() => navigate("home")} style={{ background:"none", border:"none", cursor:"pointer", display:"flex", alignItems:"center", gap:8 }}>
           <span style={{ fontSize:20 }}>⛳</span>
-          <span style={{ fontFamily:"'Playfair Display',serif", color:"#fff", fontSize:20, fontWeight:900, letterSpacing:"-0.01em" }}>
-            Love<span style={{ color:"#c8a84b" }}>Nebraska</span><span style={{ color:"#a8d890" }}>Golf</span>
+          <span style={{ fontFamily:"'Playfair Display',serif", color:"#12291C", fontSize:20, fontWeight:900, letterSpacing:"-0.01em" }}>
+            Love<span style={{ color:"#B2884B" }}>Nebraska</span><span style={{ color:"#3A5C30" }}>Golf</span>
           </span>
         </button>
         <div style={{ display:"flex", gap:24, alignItems:"center" }}>
           {[["Directory","search"],["Regions","home"],["Top Courses","home"]].map(([label, page]) => (
             <button key={label} onClick={() => navigate(page)}
-              style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, fontWeight:600, color:"rgba(200,216,184,0.65)", letterSpacing:"0.06em", transition:"color 0.2s" }}
-              onMouseEnter={e => e.target.style.color="#a8d890"}
-              onMouseLeave={e => e.target.style.color="rgba(200,216,184,0.65)"}
+              style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, fontWeight:600, color:"rgba(42,58,46,0.65)", letterSpacing:"0.06em", transition:"color 0.2s" }}
+              onMouseEnter={e => e.target.style.color="#2D4A28"}
+              onMouseLeave={e => e.target.style.color="rgba(42,58,46,0.65)"}
             >{label}</button>
           ))}
           <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer"
-            style={{ display:"flex", alignItems:"center", gap:5, color:"rgba(200,216,184,0.65)", fontSize:13, fontWeight:600, fontFamily:"'Source Sans 3',sans-serif", letterSpacing:"0.06em", textDecoration:"none", transition:"color 0.2s" }}
-            onMouseEnter={e => e.currentTarget.style.color="#a8d890"}
-            onMouseLeave={e => e.currentTarget.style.color="rgba(200,216,184,0.65)"}>
+            style={{ display:"flex", alignItems:"center", gap:5, color:"rgba(42,58,46,0.65)", fontSize:13, fontWeight:600, fontFamily:"'Source Sans 3',sans-serif", letterSpacing:"0.06em", textDecoration:"none", transition:"color 0.2s" }}
+            onMouseEnter={e => e.currentTarget.style.color="#2D4A28"}
+            onMouseLeave={e => e.currentTarget.style.color="rgba(42,58,46,0.65)"}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             Facebook
           </a>
           <button style={{
-            background:"#c8a84b", color:"#1a1000",
+            background:"#B4713B", color:"#1a1000",
             fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800,
             letterSpacing:"0.12em", textTransform:"uppercase",
             padding:"8px 16px", borderRadius:2, border:"none", cursor:"pointer",
@@ -70,7 +70,7 @@ function Nav({ navigate, currentPage }) {
 }
 
 function TypeBadge({ type }) {
-  const map = { Public:{bg:"#1d3320",text:"#a8d890",border:"#2d5330"}, Private:{bg:"#1a1a2e",text:"#9898d8",border:"#2a2a4e"}, "Semi-Private":{bg:"#2e1d10",text:"#d8a870",border:"#4e3520"} };
+  const map = { Public:{bg:"#CADCD0",text:"#12291C",border:"#B8D8B0"}, Private:{bg:"#EFE6D2",text:"#8A763E",border:"#E3D9C2"}, "Semi-Private":{bg:"#F3EAD7",text:"#8A6A3A",border:"#E3D9C2"} };
   const c = map[type] || map["Public"];
   return <span style={{ background:c.bg, color:c.text, border:`1px solid ${c.border}`, fontSize:9, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", padding:"3px 8px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif", whiteSpace:"nowrap" }}>{type}</span>;
 }
@@ -79,7 +79,7 @@ function CoursePhoto({ course, style = {} }) {
   const [err, setErr] = useState(false);
   const src = course.photos?.[0];
   if (!src || err) return (
-    <div style={{ background:"linear-gradient(135deg,#1d3320,#2d4a28)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:36, color:"rgba(168,216,144,0.2)", ...style }}>⛳</div>
+    <div style={{ background:"linear-gradient(135deg,#EFE6D2,#E3D9C2)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:36, color:"rgba(58,92,48,0.25)", ...style }}>⛳</div>
   );
   return <img src={src} alt={course.name} onError={() => setErr(true)} style={{ objectFit:"cover", objectPosition:"center 60%", display:"block", ...style }} />;
 }
@@ -94,42 +94,42 @@ function HomePage({ navigate }) {
   const handleSearch = () => navigate("search", { query, region, type });
 
   return (
-    <div style={{ minHeight:"100vh", background:"#0a1209" }}>
+    <div style={{ minHeight:"100vh", background:"#F3EAD7" }}>
 
       {/* HERO */}
       <div style={{ position:"relative", minHeight:"88vh", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", overflow:"hidden", padding:"60px 24px 100px" }}>
-        <div className="fade-in" style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse 120% 60% at 50% 100%,#1d3a10 0%,transparent 60%),radial-gradient(ellipse 80% 50% at 20% 80%,#2a4a08 0%,transparent 50%),linear-gradient(175deg,#0a1e28 0%,#0e1a08 35%,#1a2a08 55%,#0a1408 100%)" }} />
+        <div className="fade-in" style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse 120% 60% at 50% 100%,#D8C9A8 0%,transparent 60%),radial-gradient(ellipse 80% 50% at 20% 80%,#EFE6D2 0%,transparent 50%),linear-gradient(175deg,#F3EAD7 0%,#EDE2C8 55%,#E8DCC2 100%)" }} />
         <div style={{ position:"absolute", inset:0, opacity:0.035, backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize:"256px 256px" }} />
 
         <div style={{ position:"relative", textAlign:"center", maxWidth:780, width:"100%" }}>
           <div className="fade-up" style={{ display:"inline-flex", alignItems:"center", gap:12, marginBottom:24 }}>
-            <div style={{ height:1, width:40, background:"rgba(200,168,75,0.5)" }} />
-            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#c8a84b" }}>The Official Nebraska Golf Directory</span>
-            <div style={{ height:1, width:40, background:"rgba(200,168,75,0.5)" }} />
+            <div style={{ height:1, width:40, background:"rgba(178,136,75,0.55)" }} />
+            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#B2884B" }}>The Official Nebraska Golf Directory</span>
+            <div style={{ height:1, width:40, background:"rgba(178,136,75,0.55)" }} />
           </div>
 
-          <h1 className="fade-up" style={{ animationDelay:"0.08s", fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(42px,7vw,82px)", fontWeight:900, color:"#fff", lineHeight:1.0, letterSpacing:"-0.025em", margin:"0 0 8px" }}>
-            Every Course.<br /><span style={{ color:"#a8d890" }}>Every Corner</span><br />of Nebraska.
+          <h1 className="fade-up" style={{ animationDelay:"0.08s", fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(42px,7vw,82px)", fontWeight:900, color:"#12291C", lineHeight:1.0, letterSpacing:"-0.025em", margin:"0 0 8px" }}>
+            Every Course.<br /><span style={{ color:"#B4713B" }}>Every Corner</span><br />of Nebraska.
           </h1>
 
-          <p className="fade-up" style={{ animationDelay:"0.16s", fontFamily:"'Source Sans 3',sans-serif", fontSize:"clamp(15px,2.5vw,19px)", fontWeight:300, color:"rgba(200,216,184,0.7)", margin:"18px auto 36px", lineHeight:1.6, maxWidth:520 }}>
+          <p className="fade-up" style={{ animationDelay:"0.16s", fontFamily:"'Source Sans 3',sans-serif", fontSize:"clamp(15px,2.5vw,19px)", fontWeight:300, color:"rgba(42,58,46,0.7)", margin:"18px auto 36px", lineHeight:1.6, maxWidth:520 }}>
             From the world-famous Sandhills to the Panhandle's big-sky prairie — 197 courses, 8 regions, one place to find your next round.
           </p>
 
           {/* Search bar */}
-          <div className="fade-up" style={{ animationDelay:"0.24s", background:"rgba(0,0,0,0.55)", backdropFilter:"blur(12px)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:4, padding:"22px 24px", maxWidth:680, margin:"0 auto 20px" }}>
+          <div className="fade-up" style={{ animationDelay:"0.24s", background:"rgba(252,250,243,0.85)", backdropFilter:"blur(12px)", border:"1px solid #E3D9C2", borderRadius:4, padding:"22px 24px", maxWidth:680, margin:"0 auto 20px" }}>
             <div style={{ display:"flex", gap:10, marginBottom:12 }}>
               <div style={{ flex:1, position:"relative" }}>
                 <span style={{ position:"absolute", left:12, top:"50%", transform:"translateY(-50%)", fontSize:15, opacity:0.5 }}>⛳</span>
-                <input value={query} onChange={e => setQuery(e.target.value)} onKeyDown={e => e.key==="Enter" && handleSearch()} placeholder="Course name or city..." style={{ width:"100%", padding:"12px 14px 12px 36px", background:"rgba(255,255,255,0.1)", border:"1px solid rgba(255,255,255,0.2)", borderRadius:3, color:"#fff", fontSize:15, fontFamily:"'Source Sans 3',sans-serif", outline:"none" }} />
+                <input value={query} onChange={e => setQuery(e.target.value)} onKeyDown={e => e.key==="Enter" && handleSearch()} placeholder="Course name or city..." style={{ width:"100%", padding:"12px 14px 12px 36px", background:"#fff", border:"1px solid #D8CFC0", borderRadius:3, color:"#2A3A2E", fontSize:15, fontFamily:"'Source Sans 3',sans-serif", outline:"none" }} />
               </div>
-              <button onClick={handleSearch} style={{ background:"#c8a84b", color:"#1a1000", border:"none", padding:"12px 28px", borderRadius:3, fontFamily:"'Source Sans 3',sans-serif", fontSize:13, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", cursor:"pointer", whiteSpace:"nowrap" }}>Find Courses</button>
+              <button onClick={handleSearch} style={{ background:"#B4713B", color:"#1a1000", border:"none", padding:"12px 28px", borderRadius:3, fontFamily:"'Source Sans 3',sans-serif", fontSize:13, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", cursor:"pointer", whiteSpace:"nowrap" }}>Find Courses</button>
             </div>
             <div style={{ display:"flex", gap:10 }}>
               {[["All Regions",""], ...REGIONS.map(r => [r.name, r.name])].slice(0,5).map(([label,val]) => (
-                <button key={label} onClick={() => setRegion(val)} style={{ flex:1, padding:"8px 6px", background: region===val ? "rgba(168,216,144,0.15)" : "rgba(255,255,255,0.06)", border:`1px solid ${region===val ? "rgba(168,216,144,0.4)" : "rgba(255,255,255,0.12)"}`, borderRadius:2, color: region===val ? "#a8d890" : "rgba(255,255,255,0.6)", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:600, cursor:"pointer", transition:"all 0.15s", whiteSpace:"nowrap" }}>{label}</button>
+                <button key={label} onClick={() => setRegion(val)} style={{ flex:1, padding:"8px 6px", background: region===val ? "rgba(180,113,59,0.12)" : "rgba(255,255,255,0.55)", border:`1px solid ${region===val ? "rgba(180,113,59,0.55)" : "#E3D9C2"}`, borderRadius:2, color: region===val ? "#9A5F2E" : "rgba(42,58,46,0.6)", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:600, cursor:"pointer", transition:"all 0.15s", whiteSpace:"nowrap" }}>{label}</button>
               ))}
-              <select value={type} onChange={e => setType(e.target.value)} style={{ flex:1, padding:"8px 8px", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:2, color:"rgba(255,255,255,0.6)", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, cursor:"pointer" }}>
+              <select value={type} onChange={e => setType(e.target.value)} style={{ flex:1, padding:"8px 8px", background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:2, color:"rgba(42,58,46,0.65)", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, cursor:"pointer" }}>
                 <option value="">Any Type</option><option>Public</option><option>Semi-Private</option><option>Private</option>
               </select>
             </div>
@@ -137,18 +137,18 @@ function HomePage({ navigate }) {
 
           <div className="fade-up" style={{ animationDelay:"0.32s", display:"flex", justifyContent:"center", gap:20, flexWrap:"wrap" }}>
             {[["18-Hole Courses","","","18"],["Public Courses","","Public",""],["Sandhills Golf","Sandhills","",""],["Driving Ranges","","",""]].map(([label,r,t,h]) => (
-              <button key={label} onClick={() => navigate("search",{region:r,type:t,holes:h})} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(200,216,184,0.55)", borderBottom:"1px solid rgba(200,216,184,0.2)", paddingBottom:1, transition:"color 0.2s" }} onMouseEnter={e=>e.target.style.color="#a8d890"} onMouseLeave={e=>e.target.style.color="rgba(200,216,184,0.55)"}>{label}</button>
+              <button key={label} onClick={() => navigate("search",{region:r,type:t,holes:h})} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(42,58,46,0.55)", borderBottom:"1px solid rgba(42,58,46,0.2)", paddingBottom:1, transition:"color 0.2s" }} onMouseEnter={e=>e.target.style.color="#2D4A28"} onMouseLeave={e=>e.target.style.color="rgba(42,58,46,0.55)"}>{label}</button>
             ))}
           </div>
         </div>
 
         {/* Stats bar */}
-        <div style={{ position:"absolute", bottom:0, left:0, right:0, background:"rgba(0,0,0,0.5)", backdropFilter:"blur(8px)", borderTop:"1px solid rgba(255,255,255,0.07)", padding:"14px 24px" }}>
+        <div style={{ position:"absolute", bottom:0, left:0, right:0, background:"#EFE6D2", backdropFilter:"blur(8px)", borderTop:"1px solid #E3D9C2", padding:"14px 24px" }}>
           <div style={{ maxWidth:1100, margin:"0 auto", display:"flex", justifyContent:"center" }}>
             {[["197","Golf Courses"],["8","Regions"],["93","Public Courses"],["1","Great State"]].map(([val,lbl],i) => (
-              <div key={lbl} className="fade-up" style={{ animationDelay:`${0.4+i*0.08}s`, textAlign:"center", padding:"0 32px", borderRight: i<3 ? "1px solid rgba(255,255,255,0.1)" : "none" }}>
-                <div style={{ fontFamily:"'Playfair Display',serif", fontSize:26, fontWeight:900, color:"#c8a84b", lineHeight:1 }}>{val}</div>
-                <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"rgba(200,216,184,0.5)", marginTop:3 }}>{lbl}</div>
+              <div key={lbl} className="fade-up" style={{ animationDelay:`${0.4+i*0.08}s`, textAlign:"center", padding:"0 32px", borderRight: i<3 ? "1px solid rgba(18,41,28,0.12)" : "none" }}>
+                <div style={{ fontFamily:"'Playfair Display',serif", fontSize:26, fontWeight:900, color:"#12291C", lineHeight:1 }}>{val}</div>
+                <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:600, letterSpacing:"0.14em", textTransform:"uppercase", color:"rgba(42,58,46,0.5)", marginTop:3 }}>{lbl}</div>
               </div>
             ))}
           </div>
@@ -156,13 +156,13 @@ function HomePage({ navigate }) {
       </div>
 
       {/* QUICK FILTERS */}
-      <div style={{ padding:"36px 0", borderBottom:"1px solid rgba(255,255,255,0.06)" }}>
+      <div style={{ padding:"36px 0", borderBottom:"1px solid #E3D9C2" }}>
         <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px", display:"grid", gridTemplateColumns:"repeat(6,1fr)", gap:10 }}>
           {[["🌍","All Courses","197 total","","",""],["🟢","Public","93 courses","","Public",""],["🔵","Semi-Private","68 courses","","Semi-Private",""],["🔴","Private","28 courses","","Private",""],["⛳","18 Holes","126 courses","","","18"],["🏌️","9 Holes","65 courses","","","9"]].map(([icon,label,sub,r,t,h],i) => (
-            <button key={label} onClick={() => navigate("search",{region:r,type:t,holes:h})} className="fade-up" style={{ animationDelay:`${i*50}ms`, display:"flex", flexDirection:"column", alignItems:"center", gap:6, padding:"18px 12px", borderRadius:3, cursor:"pointer", border:"1px solid rgba(255,255,255,0.09)", background:"rgba(255,255,255,0.03)", transition:"all 0.2s" }} onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,0.07)";e.currentTarget.style.borderColor="rgba(168,216,144,0.25)";e.currentTarget.style.transform="translateY(-2px)";}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,0.03)";e.currentTarget.style.borderColor="rgba(255,255,255,0.09)";e.currentTarget.style.transform="none";}}>
+            <button key={label} onClick={() => navigate("search",{region:r,type:t,holes:h})} className="fade-up" style={{ animationDelay:`${i*50}ms`, display:"flex", flexDirection:"column", alignItems:"center", gap:6, padding:"18px 12px", borderRadius:3, cursor:"pointer", border:"1px solid #E3D9C2", background:"#FCFAF3", transition:"all 0.2s" }} onMouseEnter={e=>{e.currentTarget.style.background="#F7F1E2";e.currentTarget.style.borderColor="rgba(180,113,59,0.4)";e.currentTarget.style.transform="translateY(-2px)";}} onMouseLeave={e=>{e.currentTarget.style.background="#FCFAF3";e.currentTarget.style.borderColor="#E3D9C2";e.currentTarget.style.transform="none";}}>
               <span style={{ fontSize:22 }}>{icon}</span>
-              <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:700, color:"#e8f0d8" }}>{label}</span>
-              <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, color:"rgba(200,216,184,0.4)", letterSpacing:"0.06em" }}>{sub}</span>
+              <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:700, color:"#12291C" }}>{label}</span>
+              <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, color:"rgba(42,58,46,0.4)", letterSpacing:"0.06em" }}>{sub}</span>
             </button>
           ))}
         </div>
@@ -173,24 +173,24 @@ function HomePage({ navigate }) {
         <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px" }}>
           <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", marginBottom:28, flexWrap:"wrap", gap:12 }}>
             <div>
-              <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#c8a84b", marginBottom:8 }}>Explore Nebraska</div>
-              <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(28px,4vw,42px)", fontWeight:900, color:"#fff", lineHeight:1.05, letterSpacing:"-0.02em" }}>Browse by Region</h2>
-              <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:14, color:"rgba(200,216,184,0.5)", marginTop:6, maxWidth:480 }}>Nebraska golf is as diverse as the state itself — from world-renowned links to quiet small-town tracks.</p>
+              <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#B2884B", marginBottom:8 }}>Explore Nebraska</div>
+              <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(28px,4vw,42px)", fontWeight:900, color:"#12291C", lineHeight:1.05, letterSpacing:"-0.02em" }}>Browse by Region</h2>
+              <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:14, color:"rgba(42,58,46,0.5)", marginTop:6, maxWidth:480 }}>Nebraska golf is as diverse as the state itself — from world-renowned links to quiet small-town tracks.</p>
             </div>
-            <button onClick={() => navigate("search")} style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:700, color:"#a8d890", background:"none", border:"1px solid rgba(168,216,144,0.3)", padding:"10px 20px", borderRadius:2, cursor:"pointer", letterSpacing:"0.08em", textTransform:"uppercase", whiteSpace:"nowrap" }}>View All 197 Courses →</button>
+            <button onClick={() => navigate("search")} style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:700, color:"#2D4A28", background:"none", border:"1px solid rgba(58,92,48,0.4)", padding:"10px 20px", borderRadius:2, cursor:"pointer", letterSpacing:"0.08em", textTransform:"uppercase", whiteSpace:"nowrap" }}>View All 197 Courses →</button>
           </div>
 
           <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:14 }}>
             {REGIONS.map((r,i) => {
               const [hov,setHov] = useState(false);
               return (
-                <div key={r.name} onClick={() => navigate("search",{region:r.name})} className="fade-up" style={{ animationDelay:`${i*60}ms`, background:r.bg, borderRadius:3, border:`1px solid ${hov ? r.accent : "rgba(255,255,255,0.08)"}`, padding:"22px 20px", cursor:"pointer", transition:"all 0.25s", transform: hov ? "translateY(-4px)" : "none", boxShadow: hov ? `0 16px 48px rgba(0,0,0,0.4),0 0 0 1px ${r.accent}33` : "0 4px 16px rgba(0,0,0,0.2)" }} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}>
+                <div key={r.name} onClick={() => navigate("search",{region:r.name})} className="fade-up" style={{ animationDelay:`${i*60}ms`, background:r.bg, borderRadius:3, border:`1px solid ${hov ? r.accent : "rgba(18,41,28,0.12)"}`, padding:"22px 20px", cursor:"pointer", transition:"all 0.25s", transform: hov ? "translateY(-4px)" : "none", boxShadow: hov ? `0 16px 48px rgba(42,58,46,0.18),0 0 0 1px ${r.accent}33` : "0 4px 16px rgba(42,58,46,0.12)" }} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}>
                   <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:10 }}>
                     <span style={{ fontSize:26 }}>{r.icon}</span>
                     <span style={{ background:`${r.accent}22`, color:r.accent, border:`1px solid ${r.accent}44`, fontSize:9, fontWeight:800, letterSpacing:"0.12em", textTransform:"uppercase", padding:"3px 8px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif" }}>{r.courses} courses</span>
                   </div>
-                  <h3 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:20, fontWeight:900, color:"#fff", margin:"0 0 5px", letterSpacing:"-0.01em", lineHeight:1.1 }}>{r.name}</h3>
-                  <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(255,255,255,0.55)", margin:"0 0 12px", lineHeight:1.5 }}>{r.tagline}</p>
+                  <h3 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:20, fontWeight:900, color:"#12291C", margin:"0 0 5px", letterSpacing:"-0.01em", lineHeight:1.1 }}>{r.name}</h3>
+                  <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(42,58,46,0.65)", margin:"0 0 12px", lineHeight:1.5 }}>{r.tagline}</p>
                   <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:700, color:r.accent, letterSpacing:"0.1em", textTransform:"uppercase", opacity: hov ? 1 : 0.6, transition:"opacity 0.2s" }}>Explore →</div>
                 </div>
               );
@@ -201,25 +201,25 @@ function HomePage({ navigate }) {
 
       {/* FEATURED COURSES */}
       {featured.length > 0 && (
-        <div style={{ padding:"0 0 64px", borderTop:"1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ padding:"0 0 64px", borderTop:"1px solid #E3D9C2" }}>
           <div style={{ maxWidth:1100, margin:"0 auto", padding:"64px 24px 0" }}>
             <div style={{ marginBottom:24 }}>
-              <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#c8a84b", marginBottom:8 }}>⭐ Spotlight</div>
-              <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(26px,3.5vw,38px)", fontWeight:900, color:"#fff", letterSpacing:"-0.02em" }}>Featured Courses</h2>
+              <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#B2884B", marginBottom:8 }}>⭐ Spotlight</div>
+              <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(26px,3.5vw,38px)", fontWeight:900, color:"#12291C", letterSpacing:"-0.02em" }}>Featured Courses</h2>
             </div>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16 }}>
               {featured.map((c,i) => {
                 const [hov,setHov] = useState(false);
                 return (
-                  <div key={c.slug} onClick={() => navigate("course",{slug:c.slug})} className="fade-up" style={{ animationDelay:`${i*80}ms`, borderRadius:3, overflow:"hidden", border:"1px solid rgba(255,255,255,0.1)", cursor:"pointer", transform: hov?"translateY(-4px)":"none", boxShadow: hov?"0 20px 60px rgba(0,0,0,0.5)":"0 4px 20px rgba(0,0,0,0.3)", transition:"all 0.25s", position:"relative", height:250 }} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}>
+                  <div key={c.slug} onClick={() => navigate("course",{slug:c.slug})} className="fade-up" style={{ animationDelay:`${i*80}ms`, borderRadius:3, overflow:"hidden", border:"1px solid rgba(18,41,28,0.15)", cursor:"pointer", transform: hov?"translateY(-4px)":"none", boxShadow: hov?"0 20px 60px rgba(42,58,46,0.25)":"0 4px 20px rgba(42,58,46,0.15)", transition:"all 0.25s", position:"relative", height:250 }} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}>
                     <CoursePhoto course={c} style={{ position:"absolute", inset:0, width:"100%", height:"100%", filter:"brightness(0.5) saturate(1.1)" }} />
                     <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.25) 55%,transparent 100%)" }} />
-                    <div style={{ position:"absolute", top:12, right:12, background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", fontSize:9, fontWeight:800, letterSpacing:"0.14em", textTransform:"uppercase", padding:"4px 10px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif" }}>⭐ Featured</div>
+                    <div style={{ position:"absolute", top:12, right:12, background:"linear-gradient(135deg,#B4713B,#C98A52)", color:"#1a1000", fontSize:9, fontWeight:800, letterSpacing:"0.14em", textTransform:"uppercase", padding:"4px 10px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif" }}>⭐ Featured</div>
                     <div style={{ position:"absolute", bottom:0, left:0, right:0, padding:"16px" }}>
                       <div style={{ display:"flex", gap:5, marginBottom:6 }}><TypeBadge type={c.club_type} /><span style={{ background:"rgba(255,255,255,0.15)", color:"#fff", fontSize:9, fontWeight:700, padding:"3px 8px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif", letterSpacing:"0.1em" }}>{c.holes} holes</span></div>
                       <h3 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:16, fontWeight:900, color:"#fff", margin:"0 0 3px", lineHeight:1.15 }}>{c.name}</h3>
                       <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(255,255,255,0.6)", margin:"0 0 8px", lineHeight:1.4 }}>{c.city}, NE</p>
-                      <div style={{ display:"flex", justifyContent:"space-between" }}><span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:700, color:"#c8a84b" }}>{c.greens_fee}</span><span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, color:"#a8d890", fontWeight:700 }}>View →</span></div>
+                      <div style={{ display:"flex", justifyContent:"space-between" }}><span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:700, color:"#EED69C" }}>{c.greens_fee}</span><span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, color:"#CADCD0", fontWeight:700 }}>View →</span></div>
                     </div>
                   </div>
                 );
@@ -230,34 +230,34 @@ function HomePage({ navigate }) {
       )}
 
       {/* CLAIM LISTING */}
-      <div style={{ background:"linear-gradient(135deg,#1a0e00 0%,#2a1800 50%,#1a0e00 100%)", borderTop:"1px solid rgba(200,168,75,0.2)", borderBottom:"1px solid rgba(200,168,75,0.2)", padding:"48px 0" }}>
+      <div style={{ background:"linear-gradient(135deg,#EFE6D2 0%,#EDE2C8 50%,#EFE6D2 100%)", borderTop:"1px solid rgba(178,136,75,0.35)", borderBottom:"1px solid rgba(178,136,75,0.35)", padding:"48px 0" }}>
         <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:32, flexWrap:"wrap" }}>
           <div style={{ flex:1, minWidth:280 }}>
-            <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#c8a84b", marginBottom:10 }}>For Course Owners</div>
-            <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#fff", lineHeight:1.1, marginBottom:12 }}>Is your course on the list?<br /><span style={{ color:"#c8a84b" }}>Make it stand out.</span></h2>
-            <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:14, color:"rgba(255,255,255,0.6)", lineHeight:1.65, maxWidth:480 }}>Thousands of Nebraska golfers use LoveNebraskaGolf.com to plan their rounds. A Featured listing puts your course first — photos, amenities, tee time links, and priority placement in every search.</p>
+            <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.25em", textTransform:"uppercase", color:"#B2884B", marginBottom:10 }}>For Course Owners</div>
+            <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(22px,3.5vw,34px)", fontWeight:900, color:"#12291C", lineHeight:1.1, marginBottom:12 }}>Is your course on the list?<br /><span style={{ color:"#B4713B" }}>Make it stand out.</span></h2>
+            <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:14, color:"rgba(42,58,46,0.7)", lineHeight:1.65, maxWidth:480 }}>Thousands of Nebraska golfers use LoveNebraskaGolf.com to plan their rounds. A Featured listing puts your course first — photos, amenities, tee time links, and priority placement in every search.</p>
             <div style={{ display:"flex", gap:20, marginTop:18, flexWrap:"wrap" }}>
               {["📸 Photo gallery","⭐ Priority placement","📍 Map & directions","📞 Direct contact"].map(f => (
-                <span key={f} style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#a8d890" }}>{f}</span>
+                <span key={f} style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#2D4A28" }}>{f}</span>
               ))}
             </div>
           </div>
-          <div style={{ background:"rgba(200,168,75,0.08)", border:"2px solid rgba(200,168,75,0.3)", borderRadius:4, padding:"28px 32px", textAlign:"center", minWidth:220 }}>
-            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:50, fontWeight:900, color:"#c8a84b", lineHeight:1 }}>$12.99</div>
-            <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(255,255,255,0.45)", letterSpacing:"0.1em", textTransform:"uppercase", marginBottom:18 }}>per month</div>
-            <button style={{ background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", border:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"13px 28px", borderRadius:3, cursor:"pointer", width:"100%", marginBottom:8 }} onClick={() => navigate("claim")}>Claim Your Listing</button>
-            <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, color:"rgba(255,255,255,0.35)" }}>No setup fees · Cancel anytime</div>
+          <div style={{ background:"#FCFAF3", border:"2px solid rgba(180,113,59,0.4)", borderRadius:4, padding:"28px 32px", textAlign:"center", minWidth:220 }}>
+            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:50, fontWeight:900, color:"#B4713B", lineHeight:1 }}>$12.99</div>
+            <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"#7A7568", letterSpacing:"0.1em", textTransform:"uppercase", marginBottom:18 }}>per month</div>
+            <button style={{ background:"linear-gradient(135deg,#B4713B,#C98A52)", color:"#1a1000", border:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"13px 28px", borderRadius:3, cursor:"pointer", width:"100%", marginBottom:8 }} onClick={() => navigate("claim")}>Claim Your Listing</button>
+            <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, color:"#7A7568" }}>No setup fees · Cancel anytime</div>
           </div>
         </div>
       </div>
 
       {/* FOOTER */}
-      <footer style={{ background:"#040c04", borderTop:"1px solid rgba(255,255,255,0.06)", padding:"44px 0 28px" }}>
+      <footer style={{ background:"#EDE2C8", borderTop:"1px solid #E3D9C2", padding:"44px 0 28px" }}>
         <div style={{ maxWidth:1100, margin:"0 auto", padding:"0 24px" }}>
           <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:36, marginBottom:36 }}>
             <div>
-              <div style={{ fontFamily:"'Playfair Display',serif", color:"#fff", fontSize:18, fontWeight:900, marginBottom:10 }}>Love<span style={{ color:"#c8a84b" }}>Nebraska</span><span style={{ color:"#a8d890" }}>Golf</span></div>
-              <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(200,216,184,0.4)", lineHeight:1.65, maxWidth:260, marginBottom:16 }}>The definitive guide to golf in Nebraska — 197 courses across 8 regions.</p>
+              <div style={{ fontFamily:"'Playfair Display',serif", color:"#12291C", fontSize:18, fontWeight:900, marginBottom:10 }}>Love<span style={{ color:"#B2884B" }}>Nebraska</span><span style={{ color:"#3A5C30" }}>Golf</span></div>
+              <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(42,58,46,0.4)", lineHeight:1.65, maxWidth:260, marginBottom:16 }}>The definitive guide to golf in Nebraska — 197 courses across 8 regions.</p>
               {/* Facebook CTA */}
               <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer"
                 style={{ display:"inline-flex", alignItems:"center", gap:8, background:"#3b5998", color:"#fff", borderRadius:3, padding:"9px 16px", textDecoration:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, fontWeight:700, transition:"opacity 0.2s" }}
@@ -273,22 +273,22 @@ function HomePage({ navigate }) {
               { label:"For Courses", items:[["Claim Listing","claim",{}],["About","home",{}],["Contact","home",{}]] },
             ].map(col => (
               <div key={col.label}>
-                <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.2em", textTransform:"uppercase", color:"#c8a84b", marginBottom:12 }}>{col.label}</div>
+                <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:10, fontWeight:800, letterSpacing:"0.2em", textTransform:"uppercase", color:"#B2884B", marginBottom:12 }}>{col.label}</div>
                 {col.items.map(([label,page,params]) => (
-                  <button key={label} onClick={() => navigate(page, params)} style={{ display:"block", marginBottom:7, background:"none", border:"none", cursor:"pointer", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(200,216,184,0.45)", textAlign:"left" }} onMouseEnter={e=>e.target.style.color="#a8d890"} onMouseLeave={e=>e.target.style.color="rgba(200,216,184,0.45)"}>{label}</button>
+                  <button key={label} onClick={() => navigate(page, params)} style={{ display:"block", marginBottom:7, background:"none", border:"none", cursor:"pointer", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(42,58,46,0.45)", textAlign:"left" }} onMouseEnter={e=>e.target.style.color="#2D4A28"} onMouseLeave={e=>e.target.style.color="rgba(42,58,46,0.45)"}>{label}</button>
                 ))}
               </div>
             ))}
           </div>
-          <div style={{ borderTop:"1px solid rgba(255,255,255,0.07)", paddingTop:18, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:10, alignItems:"center" }}>
-            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.28)" }}>© 2026 LoveNebraskaGolf.com · All rights reserved</span>
-            <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer" style={{ display:"flex", alignItems:"center", gap:5, fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.35)", textDecoration:"none" }}
-              onMouseEnter={e => e.currentTarget.style.color="#a8d890"}
-              onMouseLeave={e => e.currentTarget.style.color="rgba(200,216,184,0.35)"}>
+          <div style={{ borderTop:"1px solid rgba(18,41,28,0.12)", paddingTop:18, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:10, alignItems:"center" }}>
+            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(42,58,46,0.28)" }}>© 2026 LoveNebraskaGolf.com · All rights reserved</span>
+            <a href="https://www.facebook.com/LoveNebraskaGolf/" target="_blank" rel="noreferrer" style={{ display:"flex", alignItems:"center", gap:5, fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(42,58,46,0.35)", textDecoration:"none" }}
+              onMouseEnter={e => e.currentTarget.style.color="#2D4A28"}
+              onMouseLeave={e => e.currentTarget.style.color="rgba(42,58,46,0.35)"}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               facebook.com/LoveNebraskaGolf
             </a>
-            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(200,216,184,0.28)" }}>197 Courses · 8 Regions · Nebraska's Golf Directory</span>
+            <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"rgba(42,58,46,0.28)" }}>197 Courses · 8 Regions · Nebraska's Golf Directory</span>
           </div>
         </div>
       </footer>
@@ -324,23 +324,23 @@ function SearchPage({ navigate, initialFilters = {} }) {
   const rest = filtered.filter(c => !c.featured);
 
   return (
-    <div style={{ minHeight:"100vh", background:"#f0ebe0" }}>
-      <style>{`.sr-row:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.12); transform: translateY(-2px); } .sr-row { transition: all 0.2s; cursor: pointer; }`}</style>
+    <div style={{ minHeight:"100vh", background:"#F3EAD7" }}>
+      <style>{`.sr-row:hover { box-shadow: 0 8px 32px rgba(42,58,46,0.12); transform: translateY(-2px); } .sr-row { transition: all 0.2s; cursor: pointer; }`}</style>
 
       {/* Search bar */}
-      <div style={{ background:"#1d3320", padding:"16px 0", borderBottom:"1px solid #2d4a28" }}>
+      <div style={{ background:"#EFE6D2", padding:"16px 0", borderBottom:"1px solid #E3D9C2" }}>
         <div style={{ maxWidth:1060, margin:"0 auto", padding:"0 20px", display:"flex", gap:10, alignItems:"center", flexWrap:"wrap" }}>
           <div style={{ flex:1, minWidth:200, position:"relative" }}>
             <span style={{ position:"absolute", left:11, top:"50%", transform:"translateY(-50%)", fontSize:14, opacity:0.5 }}>🔍</span>
-            <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Course name or city..." style={{ width:"100%", padding:"10px 12px 10px 32px", background:"rgba(255,255,255,0.09)", border:"1px solid rgba(168,216,144,0.2)", borderRadius:2, color:"#e0f0d0", fontSize:14, fontFamily:"'Source Sans 3',sans-serif", outline:"none" }} />
+            <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Course name or city..." style={{ width:"100%", padding:"10px 12px 10px 32px", background:"#FCFAF3", border:"1px solid #D8CFC0", borderRadius:2, color:"#2A3A2E", fontSize:14, fontFamily:"'Source Sans 3',sans-serif", outline:"none" }} />
           </div>
-          <select value={region} onChange={e=>setRegion(e.target.value)} style={{ padding:"10px 12px", background:"rgba(255,255,255,0.09)", border:"1px solid rgba(168,216,144,0.2)", borderRadius:2, color:"rgba(255,255,255,0.8)", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, cursor:"pointer" }}>
+          <select value={region} onChange={e=>setRegion(e.target.value)} style={{ padding:"10px 12px", background:"#FCFAF3", border:"1px solid #D8CFC0", borderRadius:2, color:"#2A3A2E", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, cursor:"pointer" }}>
             <option value="">All Regions</option>{REGIONS.map(r=><option key={r.name}>{r.name}</option>)}
           </select>
-          <select value={type} onChange={e=>setType(e.target.value)} style={{ padding:"10px 12px", background:"rgba(255,255,255,0.09)", border:"1px solid rgba(168,216,144,0.2)", borderRadius:2, color:"rgba(255,255,255,0.8)", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, cursor:"pointer" }}>
+          <select value={type} onChange={e=>setType(e.target.value)} style={{ padding:"10px 12px", background:"#FCFAF3", border:"1px solid #D8CFC0", borderRadius:2, color:"#2A3A2E", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, cursor:"pointer" }}>
             <option value="">All Types</option><option>Public</option><option>Semi-Private</option><option>Private</option>
           </select>
-          <select value={holes} onChange={e=>setHoles(e.target.value)} style={{ padding:"10px 12px", background:"rgba(255,255,255,0.09)", border:"1px solid rgba(168,216,144,0.2)", borderRadius:2, color:"rgba(255,255,255,0.8)", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, cursor:"pointer" }}>
+          <select value={holes} onChange={e=>setHoles(e.target.value)} style={{ padding:"10px 12px", background:"#FCFAF3", border:"1px solid #D8CFC0", borderRadius:2, color:"#2A3A2E", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, cursor:"pointer" }}>
             <option value="">Any Holes</option><option value="9">9 Holes</option><option value="18">18 Holes</option><option value="27+">27+ Holes</option>
           </select>
         </div>
@@ -350,21 +350,21 @@ function SearchPage({ navigate, initialFilters = {} }) {
 
         {/* Sidebar */}
         <div style={{ width:190, flexShrink:0 }}>
-          <div style={{ background:"#fff", border:"1px solid #ddd6be", borderRadius:3, padding:"16px 14px", marginBottom:14 }}>
-            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, fontWeight:800, color:"#1a2810", marginBottom:10 }}>Course Type</div>
+          <div style={{ background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, padding:"16px 14px", marginBottom:14 }}>
+            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, fontWeight:800, color:"#12291C", marginBottom:10 }}>Course Type</div>
             {["All","Public","Semi-Private","Private"].map(t => (
-              <button key={t} onClick={() => setType(t==="All"?"":t)} style={{ display:"block", width:"100%", textAlign:"left", background: (!type&&t==="All")||(type===t) ? "#1d3320" : "transparent", color: (!type&&t==="All")||(type===t) ? "#a8d890" : "#4a4030", border: (!type&&t==="All")||(type===t) ? "1px solid #1d3320" : "1px solid transparent", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, padding:"7px 9px", borderRadius:2, marginBottom:2, cursor:"pointer" }}>{t}</button>
+              <button key={t} onClick={() => setType(t==="All"?"":t)} style={{ display:"block", width:"100%", textAlign:"left", background: (!type&&t==="All")||(type===t) ? "#12291C" : "transparent", color: (!type&&t==="All")||(type===t) ? "#EED69C" : "#4a4030", border: (!type&&t==="All")||(type===t) ? "1px solid #12291C" : "1px solid transparent", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, padding:"7px 9px", borderRadius:2, marginBottom:2, cursor:"pointer" }}>{t}</button>
             ))}
           </div>
-          <div style={{ background:"#fff", border:"1px solid #ddd6be", borderRadius:3, padding:"16px 14px", marginBottom:14 }}>
-            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, fontWeight:800, color:"#1a2810", marginBottom:10 }}>Holes</div>
+          <div style={{ background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, padding:"16px 14px", marginBottom:14 }}>
+            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, fontWeight:800, color:"#12291C", marginBottom:10 }}>Holes</div>
             {[["All",""],["9 Holes","9"],["18 Holes","18"],["27+ Holes","27+"]].map(([lbl,val]) => (
-              <button key={lbl} onClick={() => setHoles(val)} style={{ display:"block", width:"100%", textAlign:"left", background: holes===val ? "#1d3320" : "transparent", color: holes===val ? "#a8d890" : "#4a4030", border: holes===val ? "1px solid #1d3320" : "1px solid transparent", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, padding:"7px 9px", borderRadius:2, marginBottom:2, cursor:"pointer" }}>{lbl}</button>
+              <button key={lbl} onClick={() => setHoles(val)} style={{ display:"block", width:"100%", textAlign:"left", background: holes===val ? "#12291C" : "transparent", color: holes===val ? "#EED69C" : "#4a4030", border: holes===val ? "1px solid #12291C" : "1px solid transparent", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, padding:"7px 9px", borderRadius:2, marginBottom:2, cursor:"pointer" }}>{lbl}</button>
             ))}
           </div>
-          <div style={{ background:"#fff", border:"1px solid #ddd6be", borderRadius:3, padding:"16px 14px" }}>
-            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, fontWeight:800, color:"#1a2810", marginBottom:10 }}>Amenities</div>
-            <label style={{ display:"flex", alignItems:"center", gap:8, cursor:"pointer", border:"1px solid #ddd6be", borderRadius:2, padding:"7px 9px" }}>
+          <div style={{ background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, padding:"16px 14px" }}>
+            <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, fontWeight:800, color:"#12291C", marginBottom:10 }}>Amenities</div>
+            <label style={{ display:"flex", alignItems:"center", gap:8, cursor:"pointer", border:"1px solid #E3D9C2", borderRadius:2, padding:"7px 9px" }}>
               <input type="checkbox" checked={range} onChange={e=>setRange(e.target.checked)} style={{ accentColor:"#4a7c3a" }} />
               <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, color:"#4a4030" }}>Driving Range</span>
             </label>
@@ -375,12 +375,12 @@ function SearchPage({ navigate, initialFilters = {} }) {
         <div style={{ flex:1, minWidth:0 }}>
           <div style={{ display:"flex", alignItems:"baseline", justifyContent:"space-between", marginBottom:16, flexWrap:"wrap", gap:8 }}>
             <div>
-              <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:22, fontWeight:900, color:"#1a2810", margin:0 }}>
+              <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:22, fontWeight:900, color:"#12291C", margin:0 }}>
                 {region ? `${region} Nebraska` : "Nebraska"} Golf Courses
               </h1>
-              <p style={{ color:"#8a7e60", fontSize:12, margin:"3px 0 0", fontFamily:"'Source Sans 3',sans-serif" }}>{filtered.length} course{filtered.length!==1?"s":""} found</p>
+              <p style={{ color:"#7A7568", fontSize:12, margin:"3px 0 0", fontFamily:"'Source Sans 3',sans-serif" }}>{filtered.length} course{filtered.length!==1?"s":""} found</p>
             </div>
-            <select value={sort} onChange={e=>setSort(e.target.value)} style={{ border:"1px solid #ddd6be", borderRadius:2, padding:"6px 10px", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#4a4030", background:"#fff", cursor:"pointer" }}>
+            <select value={sort} onChange={e=>setSort(e.target.value)} style={{ border:"1px solid #E3D9C2", borderRadius:2, padding:"6px 10px", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#4a4030", background:"#FCFAF3", cursor:"pointer" }}>
               <option value="recommended">Sort: Recommended</option>
               <option value="name">Sort: A–Z</option>
             </select>
@@ -388,20 +388,20 @@ function SearchPage({ navigate, initialFilters = {} }) {
 
           {/* Featured course card */}
           {featuredResult && (
-            <div onClick={() => navigate("course",{slug:featuredResult.slug})} style={{ background:"linear-gradient(135deg,#0e1a0f 0%,#1d3320 60%,#162a18 100%)", border:"1px solid #3a6030", borderRadius:3, overflow:"hidden", marginBottom:16, cursor:"pointer", boxShadow:"0 12px 48px rgba(0,0,0,0.3)", position:"relative" }}>
-              <div style={{ position:"absolute", top:0, right:0, background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", fontSize:9, fontWeight:800, letterSpacing:"0.18em", textTransform:"uppercase", padding:"5px 16px 5px 10px", fontFamily:"'Source Sans 3',sans-serif", clipPath:"polygon(0 0,100% 0,100% 100%,8px 100%)", zIndex:2 }}>⭐ Featured Course</div>
+            <div onClick={() => navigate("course",{slug:featuredResult.slug})} style={{ background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, overflow:"hidden", marginBottom:16, cursor:"pointer", boxShadow:"0 12px 48px rgba(42,58,46,0.14)", position:"relative" }}>
+              <div style={{ position:"absolute", top:0, right:0, background:"linear-gradient(135deg,#B4713B,#C98A52)", color:"#1a1000", fontSize:9, fontWeight:800, letterSpacing:"0.18em", textTransform:"uppercase", padding:"5px 16px 5px 10px", fontFamily:"'Source Sans 3',sans-serif", clipPath:"polygon(0 0,100% 0,100% 100%,8px 100%)", zIndex:2 }}>⭐ Featured Course</div>
               <div style={{ display:"flex" }}>
                 <div style={{ width:200, flexShrink:0, position:"relative", overflow:"hidden", minHeight:180 }}>
                   <CoursePhoto course={featuredResult} style={{ width:"100%", height:"100%", position:"absolute", inset:0, filter:"brightness(0.7) saturate(1.2)" }} />
-                  <div style={{ position:"absolute", inset:0, background:"linear-gradient(to right,transparent 60%,#1d3320 100%)" }} />
+                  <div style={{ position:"absolute", inset:0, background:"linear-gradient(to right,transparent 60%,#FCFAF3 100%)" }} />
                 </div>
                 <div style={{ flex:1, padding:"20px 22px 18px" }}>
-                  <div style={{ display:"flex", gap:7, marginBottom:8 }}><TypeBadge type={featuredResult.club_type} /><span style={{ color:"#c8a84b", fontSize:11, fontWeight:700, fontFamily:"'Source Sans 3',sans-serif" }}>{featuredResult.holes} Holes · Par 72</span></div>
-                  <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:22, fontWeight:900, color:"#fff", margin:"0 0 3px" }}>{featuredResult.name}</h2>
-                  <div style={{ color:"rgba(200,216,184,0.55)", fontSize:12, marginBottom:9, fontFamily:"'Source Sans 3',sans-serif" }}>📍 {featuredResult.city}, NE</div>
-                  <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, lineHeight:1.65, color:"rgba(200,216,184,0.8)", margin:"0 0 12px" }}>{featuredResult.description}</p>
+                  <div style={{ display:"flex", gap:7, marginBottom:8 }}><TypeBadge type={featuredResult.club_type} /><span style={{ color:"#9A5F2E", fontSize:11, fontWeight:700, fontFamily:"'Source Sans 3',sans-serif" }}>{featuredResult.holes} Holes · Par 72</span></div>
+                  <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:22, fontWeight:900, color:"#12291C", margin:"0 0 3px" }}>{featuredResult.name}</h2>
+                  <div style={{ color:"rgba(42,58,46,0.55)", fontSize:12, marginBottom:9, fontFamily:"'Source Sans 3',sans-serif" }}>📍 {featuredResult.city}, NE</div>
+                  <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, lineHeight:1.65, color:"rgba(42,58,46,0.8)", margin:"0 0 12px" }}>{featuredResult.description}</p>
                   <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-                    <span style={{ color:"#c8a84b", fontFamily:"'Playfair Display',serif", fontSize:16, fontWeight:700 }}>{featuredResult.greens_fee}</span>
+                    <span style={{ color:"#B4713B", fontFamily:"'Playfair Display',serif", fontSize:16, fontWeight:700 }}>{featuredResult.greens_fee}</span>
                     <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, background:"#4a7c3a", color:"#fff", padding:"7px 16px", borderRadius:2, fontWeight:700, letterSpacing:"0.06em" }}>View Course →</span>
                   </div>
                 </div>
@@ -410,21 +410,21 @@ function SearchPage({ navigate, initialFilters = {} }) {
           )}
 
           {/* Claim banner */}
-          <div style={{ border:"2px dashed #8a7450", borderRadius:3, background:"rgba(138,116,80,0.04)", padding:"16px 20px", marginBottom:16, display:"flex", alignItems:"center", justifyContent:"space-between", gap:14, cursor:"pointer", flexWrap:"wrap" }} onMouseEnter={e=>{e.currentTarget.style.borderColor="#c8a84b";e.currentTarget.style.background="rgba(200,168,75,0.06)";}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#8a7450";e.currentTarget.style.background="rgba(138,116,80,0.04)";}}>
+          <div style={{ border:"2px dashed #B2884B", borderRadius:3, background:"rgba(178,136,75,0.06)", padding:"16px 20px", marginBottom:16, display:"flex", alignItems:"center", justifyContent:"space-between", gap:14, cursor:"pointer", flexWrap:"wrap" }} onMouseEnter={e=>{e.currentTarget.style.borderColor="#B4713B";e.currentTarget.style.background="rgba(180,113,59,0.08)";}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#B2884B";e.currentTarget.style.background="rgba(178,136,75,0.06)";}}>
             <div style={{ display:"flex", alignItems:"center", gap:14 }}>
-              <div style={{ width:38, height:38, borderRadius:"50%", background:"linear-gradient(135deg,#c8a84b,#e8c86b)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:18, flexShrink:0 }}>⭐</div>
+              <div style={{ width:38, height:38, borderRadius:"50%", background:"linear-gradient(135deg,#B4713B,#C98A52)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:18, flexShrink:0 }}>⭐</div>
               <div>
-                <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:15, fontWeight:800, color:"#1a1a0a", marginBottom:2 }}>Is this your golf course? Claim your Featured listing.</div>
+                <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:15, fontWeight:800, color:"#12291C", marginBottom:2 }}>Is this your golf course? Claim your Featured listing.</div>
                 <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#6a5e40" }}>Stand out with photos, full amenities, and priority placement. <strong style={{ color:"#4a7c3a" }}>Just $12.99/month.</strong></div>
               </div>
             </div>
-            <div style={{ background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"9px 20px", borderRadius:2, whiteSpace:"nowrap", flexShrink:0, cursor:"pointer" }} onClick={() => navigate("claim")}>Claim for $12.99/mo →</div>
+            <div style={{ background:"linear-gradient(135deg,#B4713B,#C98A52)", color:"#1a1000", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"9px 20px", borderRadius:2, whiteSpace:"nowrap", flexShrink:0, cursor:"pointer" }} onClick={() => navigate("claim")}>Claim for $12.99/mo →</div>
           </div>
 
           {/* Course rows */}
           <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
             {rest.map((course,i) => (
-              <div key={course.slug} className="sr-row" onClick={() => navigate("course",{slug:course.slug})} style={{ display:"flex", background:"#f8f4ec", border:"1px solid #ddd6be", borderRadius:3, overflow:"hidden", animationDelay:`${i*40}ms` }}>
+              <div key={course.slug} className="sr-row" onClick={() => navigate("course",{slug:course.slug})} style={{ display:"flex", background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, overflow:"hidden", animationDelay:`${i*40}ms` }}>
                 <div style={{ width:130, minHeight:110, flexShrink:0, position:"relative", overflow:"hidden" }}>
                   <CoursePhoto course={course} style={{ width:"100%", height:"100%", position:"absolute", inset:0, filter:"brightness(0.82) saturate(1.1)" }} />
                   <div style={{ position:"absolute", bottom:5, left:6, background:"rgba(0,0,0,0.55)", color:"#a8d890", fontSize:10, fontWeight:700, padding:"2px 6px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif" }}>{course.holes}h</div>
@@ -432,25 +432,25 @@ function SearchPage({ navigate, initialFilters = {} }) {
                 <div style={{ flex:1, padding:"12px 16px", display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
                   <div>
                     <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", gap:8, marginBottom:3 }}>
-                      <h3 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:16, fontWeight:800, color:"#1a2810", margin:0, lineHeight:1.2 }}>{course.name}</h3>
+                      <h3 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:16, fontWeight:800, color:"#12291C", margin:0, lineHeight:1.2 }}>{course.name}</h3>
                       <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:3, flexShrink:0 }}>
                         <TypeBadge type={course.club_type} />
                         <span style={{ color:"#4a7c3a", fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:700 }}>{course.greens_fee}</span>
                       </div>
                     </div>
-                    <div style={{ color:"#7a6e50", fontSize:11, marginBottom:5, fontFamily:"'Source Sans 3',sans-serif" }}>📍 {course.city}, NE · {course.region}</div>
+                    <div style={{ color:"#7A7568", fontSize:11, marginBottom:5, fontFamily:"'Source Sans 3',sans-serif" }}>📍 {course.city}, NE · {course.region}</div>
                     <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, lineHeight:1.55, color:"#4a4030", margin:0 }}>{course.description}</p>
                   </div>
                   <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:8, flexWrap:"wrap", gap:6 }}>
                     <div style={{ display:"flex", gap:8, alignItems:"center", flexWrap:"wrap" }}>
-                      <span style={{ fontSize:11, color:"#7a6e50", fontFamily:"'Source Sans 3',sans-serif" }}>Par {course.par || "72"} · {course.holes} holes</span>
+                      <span style={{ fontSize:11, color:"#7A7568", fontFamily:"'Source Sans 3',sans-serif" }}>Par {course.par || "72"} · {course.holes} holes</span>
                       {course.driving_range==="Yes" && <span style={{ fontSize:11, color:"#4a7c3a", fontFamily:"'Source Sans 3',sans-serif" }}>✓ Range</span>}
-                      {course.phone && <span style={{ fontSize:11, color:"#7a6e50", fontFamily:"'Source Sans 3',sans-serif" }}>📞 {course.phone}</span>}
+                      {course.phone && <span style={{ fontSize:11, color:"#7A7568", fontFamily:"'Source Sans 3',sans-serif" }}>📞 {course.phone}</span>}
                       {!course.website && course.social_facebook && (
                         <span style={{ fontSize:10, background:"#e8eeff", color:"#3b5998", border:"1px solid #c8d4f0", borderRadius:2, padding:"2px 7px", fontFamily:"'Source Sans 3',sans-serif", fontWeight:700, letterSpacing:"0.06em" }}>📘 Facebook</span>
                       )}
                     </div>
-                    <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, background:"#1d3320", color:"#a8d890", padding:"4px 12px", borderRadius:2, fontWeight:600 }}>View →</span>
+                    <span style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, background:"#12291C", color:"#EED69C", padding:"4px 12px", borderRadius:2, fontWeight:600 }}>View →</span>
                   </div>
                 </div>
               </div>
@@ -458,7 +458,7 @@ function SearchPage({ navigate, initialFilters = {} }) {
           </div>
 
           {filtered.length === 0 && (
-            <div style={{ textAlign:"center", padding:"60px 20px", color:"#8a7e60" }}>
+            <div style={{ textAlign:"center", padding:"60px 20px", color:"#7A7568" }}>
               <div style={{ fontSize:44, marginBottom:10 }}>🔍</div>
               <p style={{ fontFamily:"'Playfair Display',serif", fontSize:18, color:"#3a3020", marginBottom:6 }}>No courses match your filters.</p>
               <p style={{ fontSize:13 }}>Try adjusting your search or clearing a filter.</p>
@@ -466,12 +466,12 @@ function SearchPage({ navigate, initialFilters = {} }) {
           )}
 
           {/* Bottom CTA */}
-          <div style={{ marginTop:28, background:"#1d3320", borderRadius:3, padding:"22px 24px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:14, flexWrap:"wrap" }}>
+          <div style={{ marginTop:28, background:"#EDE2C8", borderRadius:3, padding:"22px 24px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:14, flexWrap:"wrap" }}>
             <div>
-              <div style={{ fontFamily:"'Playfair Display',serif", fontSize:16, fontWeight:900, color:"#fff", marginBottom:3 }}>Own a course on this list?</div>
-              <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(200,216,184,0.7)" }}>Reach thousands of Nebraska golfers. <strong style={{ color:"#c8a84b" }}>Starting at just $12.99/month.</strong></div>
+              <div style={{ fontFamily:"'Playfair Display',serif", fontSize:16, fontWeight:900, color:"#12291C", marginBottom:3 }}>Own a course on this list?</div>
+              <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(42,58,46,0.7)" }}>Reach thousands of Nebraska golfers. <strong style={{ color:"#B4713B" }}>Starting at just $12.99/month.</strong></div>
             </div>
-            <button style={{ background:"linear-gradient(135deg,#c8a84b,#e8c86b)", color:"#1a1000", border:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"11px 24px", borderRadius:2, cursor:"pointer", whiteSpace:"nowrap" }} onClick={() => navigate("claim")}>Get Featured · $12.99/mo</button>
+            <button style={{ background:"linear-gradient(135deg,#B4713B,#C98A52)", color:"#1a1000", border:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:800, letterSpacing:"0.1em", textTransform:"uppercase", padding:"11px 24px", borderRadius:2, cursor:"pointer", whiteSpace:"nowrap" }} onClick={() => navigate("claim")}>Get Featured · $12.99/mo</button>
           </div>
         </div>
       </div>
@@ -518,21 +518,21 @@ function CoursePage({ navigate, courseSlug }) {
   const mapQ = encodeURIComponent(course.address_full || `${course.name} ${course.city} Nebraska`);
 
   return (
-    <div style={{ minHeight:"100vh", background:"#0e1a0f" }}>
+    <div style={{ minHeight:"100vh", background:"#F3EAD7" }}>
       <div style={{ maxWidth:860, margin:"0 auto", padding:"24px 20px 64px" }}>
 
         {/* Breadcrumb */}
-        <nav style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(200,216,184,0.5)", marginBottom:16, letterSpacing:"0.04em" }}>
-          <button onClick={() => navigate("home")} style={{ background:"none",border:"none",cursor:"pointer",color:"rgba(200,216,184,0.6)",fontFamily:"'Source Sans 3',sans-serif",fontSize:12 }} onMouseEnter={e=>e.target.style.color="#a8d890"} onMouseLeave={e=>e.target.style.color="rgba(200,216,184,0.6)"}>Home</button>
+        <nav style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"rgba(42,58,46,0.5)", marginBottom:16, letterSpacing:"0.04em" }}>
+          <button onClick={() => navigate("home")} style={{ background:"none",border:"none",cursor:"pointer",color:"rgba(42,58,46,0.6)",fontFamily:"'Source Sans 3',sans-serif",fontSize:12 }} onMouseEnter={e=>e.target.style.color="#2D4A28"} onMouseLeave={e=>e.target.style.color="rgba(42,58,46,0.6)"}>Home</button>
           {" › "}
-          <button onClick={() => navigate("search")} style={{ background:"none",border:"none",cursor:"pointer",color:"rgba(200,216,184,0.6)",fontFamily:"'Source Sans 3',sans-serif",fontSize:12 }} onMouseEnter={e=>e.target.style.color="#a8d890"} onMouseLeave={e=>e.target.style.color="rgba(200,216,184,0.6)"}>Courses</button>
+          <button onClick={() => navigate("search")} style={{ background:"none",border:"none",cursor:"pointer",color:"rgba(42,58,46,0.6)",fontFamily:"'Source Sans 3',sans-serif",fontSize:12 }} onMouseEnter={e=>e.target.style.color="#2D4A28"} onMouseLeave={e=>e.target.style.color="rgba(42,58,46,0.6)"}>Courses</button>
           {" › "}
-          <button onClick={() => navigate("search",{region:course.region})} style={{ background:"none",border:"none",cursor:"pointer",color:"rgba(200,216,184,0.6)",fontFamily:"'Source Sans 3',sans-serif",fontSize:12 }} onMouseEnter={e=>e.target.style.color="#a8d890"} onMouseLeave={e=>e.target.style.color="rgba(200,216,184,0.6)"}>{course.region}</button>
+          <button onClick={() => navigate("search",{region:course.region})} style={{ background:"none",border:"none",cursor:"pointer",color:"rgba(42,58,46,0.6)",fontFamily:"'Source Sans 3',sans-serif",fontSize:12 }} onMouseEnter={e=>e.target.style.color="#2D4A28"} onMouseLeave={e=>e.target.style.color="rgba(42,58,46,0.6)"}>{course.region}</button>
           {" › "}
-          <span style={{ color:"rgba(200,216,184,0.85)" }}>{course.name}</span>
+          <span style={{ color:"rgba(42,58,46,0.85)" }}>{course.name}</span>
         </nav>
 
-        <div style={{ background:"#f5f0e8", borderRadius:4, overflow:"hidden", boxShadow:"0 40px 120px rgba(0,0,0,0.6)" }}>
+        <div style={{ background:"#FCFAF3", borderRadius:4, overflow:"hidden", boxShadow:"0 40px 120px rgba(42,58,46,0.25)" }}>
 
           {/* Hero */}
           <div style={{ position:"relative", height:320, overflow:"hidden" }}>
@@ -549,37 +549,37 @@ function CoursePage({ navigate, courseSlug }) {
           </div>
 
           {/* Stat strip */}
-          <div style={{ display:"flex", background:"#1d3320", color:"#c8d8b8" }}>
+          <div style={{ display:"flex", background:"#EFE6D2", color:"#12291C" }}>
             {[
               [course.holes, "Holes"],
               [course.par || "72", "Par"],
               [course.yards || "—", "Yards"],
               [course.year_opened || "—", "Est."],
             ].map(([val,lbl],i) => (
-              <div key={lbl} style={{ flex:1, textAlign:"center", padding:"18px 8px", borderRight: i<3 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
-                <span style={{ fontFamily:"'Playfair Display',serif", fontSize:30, fontWeight:700, color:"#a8d890", lineHeight:1, display:"block" }}>{val}</span>
-                <span style={{ fontSize:18, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", color:"rgba(200,216,184,0.55)", marginTop:3, display:"block" }}>{lbl}</span>
+              <div key={lbl} style={{ flex:1, textAlign:"center", padding:"18px 8px", borderRight: i<3 ? "1px solid rgba(18,41,28,0.12)" : "none" }}>
+                <span style={{ fontFamily:"'Playfair Display',serif", fontSize:30, fontWeight:700, color:"#12291C", lineHeight:1, display:"block" }}>{val}</span>
+                <span style={{ fontSize:18, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", color:"rgba(42,58,46,0.55)", marginTop:3, display:"block" }}>{lbl}</span>
               </div>
             ))}
           </div>
 
           {/* Tabs */}
-          <div style={{ display:"flex", borderBottom:"2px solid #d4c9a8", padding:"0 24px", background:"#f5f0e8", overflowX:"auto" }}>
+          <div style={{ display:"flex", borderBottom:"2px solid #E3D9C2", padding:"0 24px", background:"#FCFAF3", overflowX:"auto" }}>
             {[["overview","🏌️","Overview"],["details","📋","Details"],["contact","📞","Contact"],["map","📍","Map"]].map(([id,icon,label]) => (
-              <button key={id} onClick={() => setTab(id)} style={{ background:"none", border:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color: tab===id ? "#3a5c30" : "#8a7e60", padding:"13px 16px 11px", cursor:"pointer", borderBottom: tab===id ? "2px solid #3a5c30" : "2px solid transparent", marginBottom:-2, display:"flex", alignItems:"center", gap:5, whiteSpace:"nowrap", transition:"color 0.15s" }}>
+              <button key={id} onClick={() => setTab(id)} style={{ background:"none", border:"none", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color: tab===id ? "#3a5c30" : "#7A7568", padding:"13px 16px 11px", cursor:"pointer", borderBottom: tab===id ? "2px solid #3a5c30" : "2px solid transparent", marginBottom:-2, display:"flex", alignItems:"center", gap:5, whiteSpace:"nowrap", transition:"color 0.15s" }}>
                 <span>{icon}</span>{label}
               </button>
             ))}
           </div>
 
           {/* Tab content */}
-          <div style={{ padding:"26px 26px 22px", background:"#f5f0e8" }}>
+          <div style={{ padding:"26px 26px 22px", background:"#FCFAF3" }}>
             {tab==="overview" && (
               <>
                 <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:18, lineHeight:1.75, color:"#3a3020", margin:"0 0 22px", borderLeft:"3px solid #4a7c3a", paddingLeft:14 }}>{course.description}</p>
                 <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:8 }}>
                   {amenities.map(a => (
-                    <div key={a.label} style={{ background:"#ede6d0", border:"1px solid #d4c9a8", borderRadius:3, padding:"10px 8px", textAlign:"center" }}>
+                    <div key={a.label} style={{ background:"#F3EAD7", border:"1px solid #E3D9C2", borderRadius:3, padding:"10px 8px", textAlign:"center" }}>
                       <span style={{ fontSize:24, display:"block", marginBottom:5 }}>{a.icon}</span>
                       <span style={{ fontSize:14, fontWeight:600, letterSpacing:"0.07em", textTransform:"uppercase", color:"#5a4e30", fontFamily:"'Source Sans 3',sans-serif" }}>{a.label}</span>
                     </div>
@@ -601,13 +601,13 @@ function CoursePage({ navigate, courseSlug }) {
                   course.greens_fee && ["Greens Fee", course.greens_fee],
                 ].filter(Boolean).map(([k,v]) => (
                   <div key={k} style={{ display:"flex", flexDirection:"column", gap:2 }}>
-                    <span style={{ fontSize:10, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", color:"#8a7e60" }}>{k}</span>
+                    <span style={{ fontSize:10, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", color:"#7A7568" }}>{k}</span>
                     <span style={{ fontSize:14, color:"#2a2010" }}>{v}</span>
                   </div>
                 ))}
                 {course.address_full && (
                   <div style={{ gridColumn:"1/-1", display:"flex", flexDirection:"column", gap:2 }}>
-                    <span style={{ fontSize:10, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", color:"#8a7e60" }}>Address</span>
+                    <span style={{ fontSize:10, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", color:"#7A7568" }}>Address</span>
                     <span style={{ fontSize:14, color:"#2a2010" }}>{course.address_full}</span>
                   </div>
                 )}
@@ -620,8 +620,8 @@ function CoursePage({ navigate, courseSlug }) {
                 <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
                   {/* Address */}
                   {course.address_full && (
-                    <div style={{ background:"#ede6d0", border:"1px solid #d4c9a8", borderRadius:3, padding:"12px 14px" }}>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:"#8a7e60", marginBottom:4 }}>Address</div>
+                    <div style={{ background:"#F3EAD7", border:"1px solid #E3D9C2", borderRadius:3, padding:"12px 14px" }}>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:"#7A7568", marginBottom:4 }}>Address</div>
                       <div style={{ fontSize:14, color:"#2a2010", lineHeight:1.5 }}>{course.address_full}</div>
                     </div>
                   )}
@@ -629,12 +629,12 @@ function CoursePage({ navigate, courseSlug }) {
                   {/* Phone + Website row */}
                   <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10 }}>
                     {course.phone && (
-                      <a href={`tel:${course.phone}`} style={{ display:"flex", alignItems:"center", gap:10, background:"#fff", border:"1px solid #d4c9a8", borderRadius:3, padding:"12px 14px", textDecoration:"none", transition:"border-color 0.15s" }}
+                      <a href={`tel:${course.phone}`} style={{ display:"flex", alignItems:"center", gap:10, background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, padding:"12px 14px", textDecoration:"none", transition:"border-color 0.15s" }}
                         onMouseEnter={e=>e.currentTarget.style.borderColor="#4a7c3a"}
-                        onMouseLeave={e=>e.currentTarget.style.borderColor="#d4c9a8"}>
+                        onMouseLeave={e=>e.currentTarget.style.borderColor="#E3D9C2"}>
                         <span style={{ fontSize:22, flexShrink:0 }}>📞</span>
                         <div>
-                          <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#8a7e60", marginBottom:2 }}>Phone</div>
+                          <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#7A7568", marginBottom:2 }}>Phone</div>
                           <div style={{ fontSize:14, fontWeight:600, color:"#3a5c30" }}>{course.phone}</div>
                         </div>
                       </a>
@@ -643,12 +643,12 @@ function CoursePage({ navigate, courseSlug }) {
                     {/* Website — or Facebook fallback */}
                     {primaryUrl && (
                       <a href={primaryUrl} target="_blank" rel="noreferrer"
-                        style={{ display:"flex", alignItems:"center", gap:10, background: isFbOnly ? "#f0f4ff" : "#fff", border:`1px solid ${isFbOnly ? "#b8c8f0" : "#d4c9a8"}`, borderRadius:3, padding:"12px 14px", textDecoration:"none", transition:"border-color 0.15s" }}
+                        style={{ display:"flex", alignItems:"center", gap:10, background: isFbOnly ? "#f0f4ff" : "#FCFAF3", border:`1px solid ${isFbOnly ? "#b8c8f0" : "#E3D9C2"}`, borderRadius:3, padding:"12px 14px", textDecoration:"none", transition:"border-color 0.15s" }}
                         onMouseEnter={e=>e.currentTarget.style.borderColor= isFbOnly ? "#3b5998" : "#4a7c3a"}
-                        onMouseLeave={e=>e.currentTarget.style.borderColor= isFbOnly ? "#b8c8f0" : "#d4c9a8"}>
+                        onMouseLeave={e=>e.currentTarget.style.borderColor= isFbOnly ? "#b8c8f0" : "#E3D9C2"}>
                         <span style={{ fontSize:22, flexShrink:0 }}>{isFbOnly ? "📘" : "🌐"}</span>
                         <div style={{ minWidth:0 }}>
-                          <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color: isFbOnly ? "#3b5998" : "#8a7e60", marginBottom:2 }}>
+                          <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color: isFbOnly ? "#3b5998" : "#7A7568", marginBottom:2 }}>
                             {isFbOnly ? "Facebook Page" : "Website"}
                           </div>
                           <div style={{ fontSize:13, fontWeight:600, color: isFbOnly ? "#3b5998" : "#3a5c30", wordBreak:"break-all", lineHeight:1.3 }}>
@@ -664,7 +664,7 @@ function CoursePage({ navigate, courseSlug }) {
                   {/* Social row — show all available */}
                   {(course.social_facebook || course.social_twitter || course.social_instagram) && (
                     <div>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:"#8a7e60", marginBottom:8 }}>Follow</div>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:"#7A7568", marginBottom:8 }}>Follow</div>
                       <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
                         {course.social_facebook && (
                           <a href={course.social_facebook} target="_blank" rel="noreferrer"
@@ -691,7 +691,7 @@ function CoursePage({ navigate, courseSlug }) {
                   {/* Email */}
                   {course.email && (
                     <div>
-                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:"#8a7e60", marginBottom:4 }}>Email</div>
+                      <div style={{ fontSize:10, fontWeight:700, letterSpacing:"0.14em", textTransform:"uppercase", color:"#7A7568", marginBottom:4 }}>Email</div>
                       <a href={`mailto:${course.email}`} style={{ fontSize:14, color:"#3a5c30" }}>{course.email}</a>
                     </div>
                   )}
@@ -705,7 +705,7 @@ function CoursePage({ navigate, courseSlug }) {
 
                   {/* No contact fallback */}
                   {!course.phone && !primaryUrl && !course.email && (
-                    <div style={{ background:"#f5f0e8", border:"1px solid #d4c9a8", borderRadius:3, padding:"14px 16px", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"#6a5e40", textAlign:"center" }}>
+                    <div style={{ background:"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, padding:"14px 16px", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"#6a5e40", textAlign:"center" }}>
                       Contact details not yet available.{" "}
                       <a href={course.nebgolf_url} target="_blank" rel="noreferrer" style={{ color:"#3a5c30", fontWeight:700 }}>View on NebGolf.org →</a>
                     </div>
@@ -715,15 +715,15 @@ function CoursePage({ navigate, courseSlug }) {
             })()}
             {tab==="map" && (
               <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-                <div style={{ borderRadius:3, overflow:"hidden", border:"1px solid #d4c9a8", height:260, background:"#e8e0cc" }}>
+                <div style={{ borderRadius:3, overflow:"hidden", border:"1px solid #E3D9C2", height:260, background:"#EFE6D2" }}>
                   <iframe title={`Map of ${course.name}`} src={`https://maps.google.com/maps?q=${mapQ}&output=embed&z=14`} width="100%" height="100%" style={{ border:0, display:"block" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
                 </div>
                 <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
                   {[["📍 Google Maps",`https://maps.google.com/maps?q=${mapQ}`],["🗺 Apple Maps",`https://maps.apple.com/?q=${mapQ}`],["🚗 Waze",`https://waze.com/ul?q=${mapQ}`]].map(([lbl,href]) => (
-                    <a key={lbl} href={href} target="_blank" rel="noreferrer" style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.08em", textTransform:"uppercase", border:"1px solid #d4c9a8", color:"#3a3020", background:"#ede6d0", padding:"8px 14px", borderRadius:2 }}>{lbl}</a>
+                    <a key={lbl} href={href} target="_blank" rel="noreferrer" style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.08em", textTransform:"uppercase", border:"1px solid #E3D9C2", color:"#3a3020", background:"#F3EAD7", padding:"8px 14px", borderRadius:2 }}>{lbl}</a>
                   ))}
                 </div>
-                {course.address_full && <div style={{ background:"#ede6d0", border:"1px solid #d4c9a8", borderRadius:3, padding:"11px 13px", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"#4a4030", lineHeight:1.6 }}><strong>📍 {course.address_full}</strong></div>}
+                {course.address_full && <div style={{ background:"#F3EAD7", border:"1px solid #E3D9C2", borderRadius:3, padding:"11px 13px", fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"#4a4030", lineHeight:1.6 }}><strong>📍 {course.address_full}</strong></div>}
               </div>
             )}
           </div>
@@ -733,9 +733,9 @@ function CoursePage({ navigate, courseSlug }) {
             const primaryUrl = course.website || course.social_facebook;
             const isFbOnly = !course.website && course.social_facebook;
             return (
-              <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"14px 24px", background:"#1d3320", gap:10, flexWrap:"wrap" }}>
+              <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"14px 24px", background:"#EDE2C8", gap:10, flexWrap:"wrap" }}>
                 {course.phone
-                  ? <a href={`tel:${course.phone}`} style={{ color:"#a8d890", fontSize:13, fontWeight:600, textDecoration:"none", letterSpacing:"0.04em" }}>{course.phone}</a>
+                  ? <a href={`tel:${course.phone}`} style={{ color:"#2D4A28", fontSize:13, fontWeight:600, textDecoration:"none", letterSpacing:"0.04em" }}>{course.phone}</a>
                   : <span />}
                 <div style={{ display:"flex", gap:10, alignItems:"center" }}>
                   {course.social_facebook && (
@@ -746,7 +746,7 @@ function CoursePage({ navigate, courseSlug }) {
                   )}
                   {primaryUrl && !isFbOnly && (
                     <a href={primaryUrl} target="_blank" rel="noreferrer"
-                      style={{ background:"transparent", border:"1px solid rgba(200,216,184,0.4)", color:"#c8d8b8", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", padding:"10px 20px", borderRadius:2, textDecoration:"none" }}>
+                      style={{ background:"transparent", border:"1px solid rgba(18,41,28,0.35)", color:"#12291C", fontFamily:"'Source Sans 3',sans-serif", fontSize:12, fontWeight:600, letterSpacing:"0.12em", textTransform:"uppercase", padding:"10px 20px", borderRadius:2, textDecoration:"none" }}>
                       Visit Site
                     </a>
                   )}
@@ -764,15 +764,15 @@ function CoursePage({ navigate, courseSlug }) {
 
         {/* FAQ */}
         <section style={{ marginTop:32 }}>
-          <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:20, fontWeight:900, color:"#e8f0d8", margin:"0 0 12px", letterSpacing:"-0.01em" }}>Frequently Asked Questions</h2>
+          <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:20, fontWeight:900, color:"#12291C", margin:"0 0 12px", letterSpacing:"-0.01em" }}>Frequently Asked Questions</h2>
           <div style={{ display:"flex", flexDirection:"column", gap:4 }}>
             {faqs.map((faq,i) => (
-              <div key={i} style={{ border:"1px solid #d4c9a8", borderRadius:3, overflow:"hidden", background:"#fff" }}>
-                <button onClick={() => setFaqOpen(faqOpen===i?null:i)} style={{ width:"100%", background:"none", border:"none", padding:"12px 14px", textAlign:"left", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", fontFamily:"'Source Sans 3',sans-serif", fontSize:14, fontWeight:700, color:"#1a2810", gap:10 }}>
+              <div key={i} style={{ border:"1px solid #E3D9C2", borderRadius:3, overflow:"hidden", background:"#FCFAF3" }}>
+                <button onClick={() => setFaqOpen(faqOpen===i?null:i)} style={{ width:"100%", background:"none", border:"none", padding:"12px 14px", textAlign:"left", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", fontFamily:"'Source Sans 3',sans-serif", fontSize:14, fontWeight:700, color:"#12291C", gap:10 }}>
                   <span>{faq.q}</span>
                   <span style={{ fontSize:18, color:"#4a7c3a", flexShrink:0, transform: faqOpen===i?"rotate(45deg)":"none", transition:"transform 0.2s" }}>+</span>
                 </button>
-                {faqOpen===i && <div style={{ padding:"0 14px 12px", fontFamily:"'Source Sans 3',sans-serif", fontSize:14, lineHeight:1.65, color:"#4a4030", borderTop:"1px solid #e8e0cc" }}><div style={{ paddingTop:10 }}>{faq.a}</div></div>}
+                {faqOpen===i && <div style={{ padding:"0 14px 12px", fontFamily:"'Source Sans 3',sans-serif", fontSize:14, lineHeight:1.65, color:"#4a4030", borderTop:"1px solid #E3D9C2" }}><div style={{ paddingTop:10 }}>{faq.a}</div></div>}
               </div>
             ))}
           </div>
@@ -781,22 +781,22 @@ function CoursePage({ navigate, courseSlug }) {
         {/* Related courses */}
         {fallbackRelated.length > 0 && (
           <section style={{ marginTop:36 }}>
-            <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:20, fontWeight:900, color:"#e8f0d8", margin:"0 0 4px", letterSpacing:"-0.01em" }}>Similar Courses Nearby</h2>
-            <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(200,216,184,0.5)", margin:"0 0 14px" }}>
-              Other <strong style={{ color:"rgba(200,216,184,0.75)" }}>{course.holes}-hole {course.club_type.toLowerCase()}</strong> courses in {course.region} Nebraska
+            <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:20, fontWeight:900, color:"#12291C", margin:"0 0 4px", letterSpacing:"-0.01em" }}>Similar Courses Nearby</h2>
+            <p style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:13, color:"rgba(42,58,46,0.5)", margin:"0 0 14px" }}>
+              Other <strong style={{ color:"rgba(42,58,46,0.75)" }}>{course.holes}-hole {course.club_type.toLowerCase()}</strong> courses in {course.region} Nebraska
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:12 }}>
               {fallbackRelated.map(r => {
                 const [hov,setHov] = useState(false);
                 return (
-                  <div key={r.slug} onClick={() => { navigate("course",{slug:r.slug}); window.scrollTo(0,0); }} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} style={{ background: hov?"#ede6d0":"#f5f0e8", border:"1px solid #ddd6be", borderRadius:3, overflow:"hidden", cursor:"pointer", transform: hov?"translateY(-3px)":"none", boxShadow: hov?"0 8px 24px rgba(0,0,0,0.1)":"none", transition:"all 0.2s" }}>
+                  <div key={r.slug} onClick={() => { navigate("course",{slug:r.slug}); window.scrollTo(0,0); }} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} style={{ background: hov?"#F3EAD7":"#FCFAF3", border:"1px solid #E3D9C2", borderRadius:3, overflow:"hidden", cursor:"pointer", transform: hov?"translateY(-3px)":"none", boxShadow: hov?"0 8px 24px rgba(42,58,46,0.12)":"none", transition:"all 0.2s" }}>
                     <div style={{ height:76, position:"relative", overflow:"hidden" }}>
                       <CoursePhoto course={r} style={{ width:"100%", height:"100%", position:"absolute", inset:0, filter:"brightness(0.7)" }} />
                       <div style={{ position:"absolute", bottom:4, left:6, background:"rgba(0,0,0,0.55)", color:"#a8d890", fontSize:9, fontWeight:700, padding:"2px 5px", borderRadius:2, fontFamily:"'Source Sans 3',sans-serif" }}>{r.holes}h · {r.club_type}</div>
                     </div>
                     <div style={{ padding:"9px 11px" }}>
-                      <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:13, fontWeight:800, color:"#1a2810", marginBottom:2, lineHeight:1.2 }}>{r.name}</div>
-                      <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"#8a7e60", marginBottom:4 }}>{r.city}, NE</div>
+                      <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:13, fontWeight:800, color:"#12291C", marginBottom:2, lineHeight:1.2 }}>{r.name}</div>
+                      <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:11, color:"#7A7568", marginBottom:4 }}>{r.city}, NE</div>
                       <div style={{ fontFamily:"'Source Sans 3',sans-serif", fontSize:12, color:"#4a7c3a", fontWeight:700 }}>{r.greens_fee}</div>
                     </div>
                   </div>
